@@ -1,0 +1,11 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.error {
+  display: block;
+  color: #fa0000;
+}
