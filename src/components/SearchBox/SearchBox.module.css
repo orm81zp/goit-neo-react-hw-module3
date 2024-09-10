@@ -1,1 +1,7 @@
 .searchBox {}
+
+@media only screen and (min-width: 768px) {
+  .searchBox {
+    max-width: 380px;
+  }
+}

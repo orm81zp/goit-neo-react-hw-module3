@@ -5,6 +5,10 @@
   gap: 6px;
 }
 
+.field input {
+  width: 100%;
+}
+
 .error {
   display: block;
   color: #fa0000;
