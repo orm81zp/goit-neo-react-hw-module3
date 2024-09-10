@@ -1,27 +1,26 @@
-import { Form, Formik } from "formik";
-import FieldInput from "../FieldInput/FieldInput";
+import { useId } from "react";
+import fieldsCss from "../styles/fields.module.css";
 import css from "./SearchBox.module.css";
 
 const SearchBox = ({ search, onChange }) => {
-  const onSubmit = (values, actions) => {
-    const { search } = values;
-    onChange(search);
-    actions.resetForm();
-  };
+  const searchFieldId = useId();
 
   const handleChange = (event) => {
-    if (event.target.name === "search") {
-      onChange(event.target.value);
-    }
+    onChange(event.target.value);
   };
 
   return (
     <div className={css.searchBox}>
-      <Formik initialValues={{ search }} onSubmit={onSubmit}>
-        <Form onChange={handleChange} className={css.form}>
-          <FieldInput name="search" label="Find contacts by name" />
-        </Form>
-      </Formik>
+      <div className={fieldsCss.field}>
+        <label htmlFor={searchFieldId}>Find contacts by name</label>
+        <input
+          type="text"
+          name="search"
+          value={search}
+          id={searchFieldId}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 };
